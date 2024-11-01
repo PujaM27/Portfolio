@@ -1,0 +1,595 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: #2503035f;
+    overflow-x: hidden; /* Prevent horizontal scroll issues */
+    font-family: Arial, sans-serif;
+}
+
+/* Title Bar Styles */
+header {
+    width: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(13, 12, 34, 0.8),
+        rgba(23, 21, 54, 0.6)
+    );
+    border-bottom: 1px solid rgba(83, 74, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(83, 74, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Add cosmic glow to name */
+.name {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 
+        0 0 10px rgba(83, 74, 255, 0.5),
+        0 0 20px rgba(83, 74, 255, 0.3),
+        0 0 30px rgba(83, 74, 255, 0.2);
+    animation: nameTwinkle 2s infinite;
+}
+
+/* Add new twinkling animation for name */
+@keyframes nameTwinkle {
+    0%, 100% { 
+        opacity: 1;
+        text-shadow: 
+            0 0 10px rgba(83, 74, 255, 0.5),
+            0 0 20px rgba(83, 74, 255, 0.3),
+            0 0 30px rgba(83, 74, 255, 0.2);
+    }
+    50% { 
+        opacity: 0.8;
+        text-shadow: 
+            0 0 15px rgba(83, 74, 255, 0.7),
+            0 0 25px rgba(83, 74, 255, 0.5),
+            0 0 35px rgba(83, 74, 255, 0.3);
+    }
+}
+
+/* Remove the old cosmicPulse animation */
+@keyframes cosmicPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Header social icons */
+.socials {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.socials a {
+    margin: 0;
+    position: relative;
+}
+
+.socials img {
+    width: 28px;
+    height: 28px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(83, 74, 255, 0.3));
+}
+
+/* Twinkling effect for social icons */
+@keyframes twinkle {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 8px rgba(83, 74, 255, 0.3)); }
+    50% { filter: brightness(1.3) drop-shadow(0 0 15px rgba(83, 74, 255, 0.6)); }
+}
+
+/* Custom styling for GitHub icon */
+.socials a:nth-child(3) img {
+    filter: brightness(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.838));
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Individual hover effects for social icons */
+.socials a:nth-child(1) img:hover { /* Instagram */
+    animation: twinkle 2s infinite;
+    filter: drop-shadow(0 0 12px rgba(255, 105, 180, 0.6));
+}
+
+.socials a:nth-child(2) img:hover { /* Twitter */
+    animation: twinkle 2s infinite;
+    filter: drop-shadow(0 0 12px rgba(29, 161, 242, 0.6));
+}
+
+.socials a:nth-child(3) img:hover { /* GitHub */
+    animation: twinkle 2s infinite;
+    filter: brightness(1.2) drop-shadow(0 0 12px rgba(255, 255, 255, 0.667));
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+}
+
+.socials a:nth-child(4) img:hover { /* LinkedIn */
+    animation: twinkle 2s infinite;
+    filter: drop-shadow(0 0 12px rgba(40, 103, 178, 0.6));
+}
+
+/* Add cosmic particles behind header */
+.title-bar::before {
+    content: '✧';
+    position: absolute;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    animation: floatParticle 4s ease-in-out infinite;
+    right: 45%;
+    top: -10px;
+}
+
+.title-bar::after {
+    content: '⋆';
+    position: absolute;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.3);
+    animation: floatParticle 5s ease-in-out infinite;
+    left: 45%;
+    bottom: -10px;
+}
+
+@keyframes floatParticle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(180deg); }
+}
+
+/* Media query updates */
+@media (max-width: 768px) {
+    .name {
+        font-size: 24px;
+    }
+
+    .socials img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .socials {
+        gap: 15px;
+    }
+}
+
+/* Section Styling */
+#about, #projects, #contact {
+    padding: 80px 20px 60px; /* Adjusted padding */
+    text-align: center;
+    color: rgb(249, 245, 245);
+    font-size: 26px;
+    font-weight: bold;
+    background-color: rgba(36, 16, 16, 0.4); /* More transparent */
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 80%;
+    position: relative;
+}
+
+#about, #projects, #contact {
+    z-index: 1; 
+}
+
+/* Projects Section Styling */
+#projects {
+    background-color: transparent;
+    height: auto;
+    color: rgb(252, 249, 249);
+    padding: 120px 20px 60px;
+    backdrop-filter: none;
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    gap: 40px;
+    padding: 40px 20px;
+    justify-content: flex-start;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, Edge */
+}
+
+/* Individual Project Item Styling */
+.project-item {
+    flex: 0 0 auto;
+    width: 600px;
+    height: 380px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 20px;
+    background: rgba(13, 12, 34, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(83, 74, 255, 0.15);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(33, 33, 88, 0.2),
+        rgba(83, 74, 255, 0.1)
+    );
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.project-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+}
+
+.project-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: grayscale(20%) brightness(0.9);
+}
+
+/* Project Info Styling */
+.project-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 2.5rem;
+    background: linear-gradient(
+        to top,
+        rgba(10, 10, 30, 0.95) 0%,
+        rgba(10, 10, 30, 0.7) 50%,
+        transparent 100%
+    );
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.project-info h3 {
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-info p {
+    font-size: 16px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.982);
+    line-height: 1.6;
+}
+
+/* Hover Effects */
+.project-item:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(83, 74, 255, 0.25);
+    border-color: rgba(83, 74, 255, 0.3);
+}
+
+.project-item:hover::before {
+    opacity: 1;
+}
+
+.project-item:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0%) brightness(1);
+}
+
+.project-item:hover .project-info {
+    transform: translateY(0);
+}
+
+/* Add subtle star decoration */
+.project-item::after {
+    content: '★';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    transition: color 0.3s ease;
+}
+
+.project-item:hover::after {
+    color: rgba(255, 255, 255, 0.986);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .project-item {
+        width: 450px;
+        height: 300px;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .project-info h3 {
+        font-size: 24px;
+    }
+
+    .project-info p {
+        font-size: 14px;
+    }
+
+    .horizontal-scroll-container {
+        gap: 25px;
+        padding: 20px 15px;
+    }
+}
+
+/* Contact Icons Styling */
+.contact-icons img {
+    width: 40px;
+    margin: 10px;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.contact-icons img:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* Starfield Canvas (removed) */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Add new footer styling */
+footer {
+    width: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(13, 12, 34, 0.6),
+        rgba(23, 21, 54, 0.8)
+    );
+    border-top: 1px solid rgba(83, 74, 255, 0.2);
+    box-shadow: 0 -5px 20px rgba(83, 74, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    color: #fbf7f7;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(83, 74, 255, 0.5),
+        transparent
+    );
+}
+
+footer .contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    padding: 10px 0;
+}
+
+footer .contact-icons a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer .contact-icons img {
+    width: 28px;
+    height: 28px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 8px rgba(83, 74, 255, 0.3));
+}
+
+footer .contact-icons a::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    background: radial-gradient(circle, rgba(83, 74, 255, 0.2), transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+footer .contact-icons a:hover::before {
+    opacity: 1;
+}
+
+footer .contact-icons img:hover {
+    transform: scale(1.2) translateY(-5px);
+    filter: drop-shadow(0 0 12px rgba(83, 74, 255, 0.6));
+}
+
+footer p {
+    margin: 10px 0 0 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.984);
+    text-shadow: 0 0 10px rgba(83, 74, 255, 0.3);
+}
+
+/* Add shooting star animation to footer */
+@keyframes shootingStars {
+    0% {
+        transform: translateX(200%) translateY(-200%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-200%) translateY(200%);
+        opacity: 0;
+    }
+}
+
+footer::after {
+    content: '✧';
+    position: absolute;
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    animation: shootingStars 3s linear infinite;
+    z-index: -1;
+}
+
+/* Contact section hover effects */
+.contact-icons a:nth-child(1):hover img { filter: drop-shadow(0 0 12px rgba(255, 105, 180, 0.6)); }
+.contact-icons a:nth-child(2):hover img { filter: drop-shadow(0 0 12px rgba(29, 161, 242, 0.6)); }
+.contact-icons a:nth-child(3):hover img { filter: drop-shadow(0 0 12px rgba(40, 103, 178, 0.6)); }
+.contact-icons a:nth-child(4):hover img { filter: drop-shadow(0 0 12px rgba(83, 74, 255, 0.6)); }
+
+/* About Section Styling */
+#about {
+    background: rgba(13, 12, 34, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(83, 74, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.991);
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+#about h1 {
+    color: #fff;
+    font-size: 32px;
+    margin-bottom: 25px;
+    text-shadow: 0 0 15px rgba(83, 74, 255, 0.4);
+}
+
+#about p {
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: normal;
+    color: rgb(255, 255, 255);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#about::before {
+    content: '🚀';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+#about::after {
+    content: '⭐';
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+/* Media query adjustments */
+@media (max-width: 768px) {
+    footer {
+        padding: 15px 0;
+    }
+
+    footer .contact-icons {
+        gap: 20px;
+    }
+
+    footer .contact-icons img {
+        width: 24px;
+        height: 24px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Update footer GitHub icon styling */
+footer .contact-icons a:nth-child(4) img { /* GitHub is 4th in footer */
+    filter: drop-shadow(0 0 8px rgba(83, 74, 255, 0.3));
+}
+
+footer .contact-icons a:nth-child(4):hover img { /* GitHub hover in footer */
+    animation: twinkle 2s infinite;
+    filter: drop-shadow(0 0 12px rgba(83, 74, 255, 0.6));
+}
+
+/* Update contact section hover effects to be consistent */
+.contact-icons a:nth-child(1):hover img { filter: drop-shadow(0 0 12px rgba(255, 105, 180, 0.6)); } /* Instagram */
+.contact-icons a:nth-child(2):hover img { filter: drop-shadow(0 0 12px rgba(29, 161, 242, 0.6)); } /* Twitter */
+.contact-icons a:nth-child(3):hover img { filter: drop-shadow(0 0 12px rgba(40, 103, 178, 0.6)); } /* LinkedIn */
+.contact-icons a:nth-child(4):hover img { filter: drop-shadow(0 0 12px rgba(83, 74, 255, 0.6)); } /* GitHub */
+
+/* Keep the general hover effect for all social icons */
+.socials a img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(83, 74, 255, 0.3));
+}
+
+.socials a:hover {
+    filter: drop-shadow(0 0 8px rgba(83, 74, 255, 0.3));
+}

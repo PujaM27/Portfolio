@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>My 3D Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <!-- Starfield Canvas for Background -->
+    <div id="backtainer">
+        <canvas id="starfield"ground-con></canvas>
+    </div>
+
+    <!-- Title Bar -->
+    <header>
+        <div class="title-bar">
+            <span class="name">Puja Mazumdar</span>
+            <div class="socials">
+                <a href="https://www.instagram.com/_puja_m27_/" target="_blank"><img src="assetzz/icons/instagram.png" alt="Instagram"></a>
+                <a href="https://x.com/__sweetooth_" target="_blank"><img src="assetzz/icons/twitter.png" alt="Twitter"></a>
+                <a href="https://github.com/PujaM27" target="_blank"><img src="assetzz/icons/github.png" alt="GitHub"></a>
+                <a href="https://www.linkedin.com/in/pujamazumdar/" target="_blank"><img src="assetzz/icons/linkedin.png" alt="LinkedIn"></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Placeholder for 3D Scene -->
+    <div id="scene-container"></div>
+
+    <!-- About Section -->
+    <section id="about" class="starry-section">
+        <h1>About Me</h1>
+        <p>Once upon a time in engineering, I was destined to design machines – until I discovered that writing code is basically telling computers what to do (and they actually listen, unlike humans! 😄). Now I orchestrate digital symphonies, turning caffeine into code and wild ideas into pixel-perfect reality. When I'm not sweet-talking computers or debugging the matrix, you'll find me crafting elegant solutions to problems you didn't know you had. Think of me as a tech-savvy storyteller who accidentally fell in love with programming while learning about gears and circuits. ✨🚀</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="starry-section">
+        <h2>My Projects</h2>
+        <div class="horizontal-scroll-container">
+            <div class="project-item">
+                <a href="https://pujam27.github.io/ClubManagement/" target="_blank">
+                    <img src="assetzz/club mgmt.png" alt="IGDTUW ClubManagement">
+                    <div class="project-info">
+                        <h3>IGDTUW ClubManagement</h3>
+                        <p>A place to manage clubs and events</p>
+                    </div>
+                </a>   
+            </div>
+            <div class="project-item">
+                <a href="https://pettingpets.vercel.app/" target="_blank">
+                    <img src="assetzz/petting.png" alt="Petting pets">
+                    <div class="project-info">
+                        <h3>Petting pets</h3>
+                        <p>A place to adopt a furry friend and give a forever home</p>
+                    </div>
+                </a>   
+            </div>
+            <div class="project-item">
+                <a href="https://portal-blast.vercel.app/" target="_blank">
+                    <img src="assetzz/portal.png" alt="Portal Shooter">
+                    <div class="project-info">
+                        <h3>Portal Shooter</h3>
+                        <p>A three.js game </p>
+                    </div>
+                </a>   
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+
+    <!-- Add this at the bottom of the body tag, just before the closing </body> -->
+    <footer>
+        <div class="contact-icons">
+            <a href="https://www.instagram.com/_puja_m27_/" target="_blank">
+                <img src="assetzz/icons/instagram.png" alt="Instagram">
+            </a>
+            <a href="https://x.com/__sweetooth_" target="_blank">
+                <img src="assetzz/icons/twitter.png" alt="Twitter">
+            </a>
+            <a href="https://www.linkedin.com/in/pujamazumdar/" target="_blank">
+                <img src="assetzz/icons/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/PujaM27" target="_blank">
+                <img src="assetzz/icons/github.png" alt="GitHub">
+            </a>
+        </div>
+        <p>Designed & Developed by Puja Mazumdar</p>
+    </footer>
+</body>
+</html>

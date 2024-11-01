@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Astronaut
+* source:	https://sketchfab.com/3d-models/low-poly-astronaut-742d852671c14addbd3587e7d2765774
+* author:	Novasky (https://sketchfab.com/Novasky)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Astronaut" (https://sketchfab.com/3d-models/low-poly-astronaut-742d852671c14addbd3587e7d2765774) by Novasky (https://sketchfab.com/Novasky) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
